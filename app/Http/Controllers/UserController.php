@@ -12,10 +12,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function dashboard()
     {
         $client = DB::select('select * from client ');
 
-        return view('user.index', ['client' => $client]);
+        return view('user.dashboard', ['client' => $client]);
     }
 }

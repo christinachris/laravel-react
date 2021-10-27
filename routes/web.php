@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user/{action}','App\Http\Controllers\userController@action');
+Route::group(['perfix' => 'user','as'=>'user.'], function(){
+
+        Route::get('/user/dashboard',[ UserController::class,'dashboard']);
+
+        // Route::get('/users', 'UserController@index');
+        // Route::get('/user/add', 'UserController@getAdd');
+        // Route::post('/user/add', 'UserController@postAdd');
+        // Route::get('/user/edit/{id}', 'UserController@getEdit');
+        // Route::post('/user/edit/{id}', 'UserController@postEdit');
+  
+});
